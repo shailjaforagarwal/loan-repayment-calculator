@@ -8,6 +8,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -56,13 +57,15 @@ public class CalculateRepayment {
                  principal = outstandingPrincipal;
              }
             double remainingOutstandingPrincipal = outstandingPrincipal - principal;
-            Payment payment = new Payment();
+             DateTimeFormatter formatters = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+             String dateStr = paymentDate.format(formatters);
+             Payment payment = new Payment();
             payment.setInitialOutStandingPrincipal(outstandingPrincipal);
             payment.setInterest(interest);
             payment.setPrincipal(principal);
             payment.setBorrowerPaymentAmount(annuity);
             payment.setRemainingOutstandingPrincipal(remainingOutstandingPrincipal);
-            payment.setDate(paymentDate);
+            payment.setDate(dateStr);
             paymentList.add(payment);
             outstandingPrincipal = remainingOutstandingPrincipal;
             paymentDate = paymentDate.plusMonths(1);
