@@ -1,7 +1,7 @@
 package com.bank.loan.service;
 import com.bank.loan.common.LoanConstants;
 import com.bank.loan.domain.Payment;
-import com.bank.loan.domain.RequestPayload;
+import com.bank.loan.domain.ReceivedPayload;
 import org.springframework.stereotype.Service;
 
 import java.text.ParseException;
@@ -14,7 +14,7 @@ import java.util.List;
 
 @Service
 public class CalculateRepayment {
-    public List<Payment> getPaymentsList(RequestPayload loanDetails){
+    public List<Payment> getPaymentsList(ReceivedPayload loanDetails){
          List<Payment> paymentList = new ArrayList<>();
          double monthlyInterestRate = getInterestRate(loanDetails.getNominalRate());
          double annuity = getAnnuity(monthlyInterestRate,loanDetails.getDuration(),loanDetails.getLoanAmount());

@@ -1,19 +1,19 @@
 package com.bank.loan.domain;
 
 
-public class RequestPayload {
+public class ReceivedPayload {
     private double loanAmount;
     private double nominalRate;
     private int duration;
     private String startDate;
 
-    public RequestPayload(double loanAmount, double nominalRate, int duration, String startDate){
+    public ReceivedPayload(double loanAmount, double nominalRate, int duration, String startDate){
         this.loanAmount = loanAmount;
         this.nominalRate = nominalRate;
         this.duration = duration;
         this.startDate = startDate;
     }
-public RequestPayload(){
+public ReceivedPayload(){
 
 }
 
